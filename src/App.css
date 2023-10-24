@@ -27,3 +27,11 @@
 ul {
   list-style-type: none;
 }
+
+.loading {
+  font-size: x-large;
+}
+
+.Votes {
+  font-size: large;
+}
