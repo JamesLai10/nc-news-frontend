@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../utils/api";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import CommentCard from "./CommentCard";
 
 function CommentList() {
   const { article_id } = useParams();
@@ -33,18 +34,13 @@ function CommentList() {
 
   return (
     <div className="CommentList">
-      <h2>Comments</h2>
+      <Link to="/articles" className="back-button">
+        Back to Articles
+      </Link>
+      <h2 className="comment-header">Comments</h2>
       <ul>
         {comments.map((comment) => (
-          <li key={comment.comment_id}>
-            <p>
-              Posted by <span id="comment-author">{comment.author}</span> on{" "}
-              <span id="comment-date">{comment.created_at.slice(0, 10)}</span>
-            </p>
-            <p>{comment.body}</p>
-            <p>Votes: {comment.votes}</p>
-            <br></br>
-          </li>
+          <CommentCard key={comment.comment_id} comment={comment} />
         ))}
       </ul>
     </div>

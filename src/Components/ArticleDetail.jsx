@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getArticleById } from "../utils/api";
+import Vote from "./Vote";
 
 function ArticleDetail() {
   const { article_id } = useParams();
@@ -31,8 +32,13 @@ function ArticleDetail() {
   return (
     <div className="ArticleDetail">
       <h2>{article.title}</h2>
-      <p>By {article.author}</p>
-      <p>Date of Post: {article.created_at.slice(0, 10)}</p>
+      <p>
+        By <span id="article-author">{article.author}</span>
+      </p>
+      <p>
+        Date of Post:{" "}
+        <span id="article-date">{article.created_at.slice(0, 10)}</span>
+      </p>
       <p>{article.body}</p>
       {article.article_img_url && (
         <img
@@ -40,7 +46,8 @@ function ArticleDetail() {
           alt={`An image of ${article.title}`}
         />
       )}
-      <p className="Votes">Votes: {article.votes}</p>
+      <Vote votes={article.votes} />
+      <p>{article.body}</p>
       <Link to={`/articles/${article_id}/comments`}>View Comments!</Link>
     </div>
   );

@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .navbar {
@@ -40,10 +40,66 @@ ul {
   text-align: center;
 }
 
-#comment-author {
+.comment-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+}
+
+.comment-author {
   font-weight: bold;
 }
 
-#comment-date {
+.comment-date {
+  color: #777;
+}
+
+.back-button {
+  display: inline-block;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #0067d4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.back-button:hover {
+  background-color: #0050a7;
+}
+
+.comment-header {
+  text-align: center;
+}
+
+.article-title {
+  text-align: center;
+}
+
+#article-info {
+  text-align: center;
+}
+
+.image-container {
+  text-align: center;
+}
+
+#article-img {
+  display: block;
+  margin: 0 auto;
+}
+
+#article-author {
   font-weight: bold;
+}
+
+#article-date {
+  color: #777;
 }

@@ -36,17 +36,20 @@ function ArticleList() {
         {articles.map((article) => (
           <li key={article.article_id}>
             <div>
-              <h2>
+              <h2 className="article-title">
                 <Link to={`/articles/${article.article_id}`}>
                   {article.title}
                 </Link>
               </h2>
-              <p>Author: {article.author}</p>
-              <p>Date of Post: {article.created_at.slice(0, 10)}</p>
-              <p>Topic: {article.topic}</p>
-              <p>Votes: {article.votes}</p>
+              <p id="article-info">Author: {article.author}</p>
+              <p id="article-info">
+                Date of Post: {article.created_at.slice(0, 10)}
+              </p>
+              <p id="article-info">Topic: {article.topic}</p>
+              <p id="article-info">Votes: {article.votes}</p>
             </div>
             <img
+              id="article-img"
               src={article.article_img_url}
               alt={`An image of ${article.title}`}
             />
