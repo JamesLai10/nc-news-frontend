@@ -35,3 +35,15 @@ ul {
 .Votes {
   font-size: large;
 }
+
+.header {
+  text-align: center;
+}
+
+#comment-author {
+  font-weight: bold;
+}
+
+#comment-date {
+  font-weight: bold;
+}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getArticleById } from "../utils/api";
 
 function ArticleDetail() {
@@ -41,6 +41,7 @@ function ArticleDetail() {
         />
       )}
       <p className="Votes">Votes: {article.votes}</p>
+      <Link to={`/articles/${article_id}/comments`}>View Comments!</Link>
     </div>
   );
 }

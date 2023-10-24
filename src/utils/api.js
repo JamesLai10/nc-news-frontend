@@ -12,4 +12,8 @@ export const getArticleById = (article_id) => {
   return api.get(`/articles/${article_id}`);
 };
 
+export const getCommentsByArticleId = (article_id) => {
+  return api.get(`/articles/${article_id}/comments`);
+};
+
 export default api;
