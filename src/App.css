@@ -103,3 +103,7 @@ ul {
 #article-date {
   color: #777;
 }
+
+.error-message {
+  color: red;
+}
