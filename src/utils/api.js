@@ -16,4 +16,8 @@ export const getCommentsByArticleId = (article_id) => {
   return api.get(`/articles/${article_id}/comments`);
 };
 
+export const updateArticleVotes = (article_id, inc_votes) => {
+  return api.patch(`/articles/${article_id}`, { inc_votes });
+};
+
 export default api;

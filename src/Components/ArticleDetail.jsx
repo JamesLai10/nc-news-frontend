@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getArticleById } from "../utils/api";
+import { getArticleById, updateArticleVotes } from "../utils/api";
 import Vote from "./Vote";
 
 function ArticleDetail() {
@@ -20,6 +20,20 @@ function ArticleDetail() {
         setLoading(false);
       });
   }, [article_id]);
+
+  const handleVote = (value) => {
+    updateArticleVotes(article_id, value)
+      .then((response) => {
+        const updatedVoteCount = response.data.article.votes;
+        setArticle((prevArticle) => ({
+          ...prevArticle,
+          votes: updatedVoteCount,
+        }));
+      })
+      .catch((error) => {
+        console.log("Error updating votes: ", error);
+      });
+  };
 
   if (loading) {
     return <p className="loading">Loading...</p>;
@@ -46,8 +60,13 @@ function ArticleDetail() {
           alt={`An image of ${article.title}`}
         />
       )}
-      <Vote votes={article.votes} />
-      <p>{article.body}</p>
+      <Vote
+        votes={article.votes}
+        article_id={article_id}
+        handleVote={handleVote}
+      />
+
+      <br></br>
       <Link to={`/articles/${article_id}/comments`}>View Comments!</Link>
     </div>
   );

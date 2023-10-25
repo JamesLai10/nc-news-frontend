@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { updateArticleVotes } from "../utils/api";
 
-function Vote({ votes }) {
+function Vote({ votes, article_id }) {
   const [userVotes, setUserVotes] = useState(0);
 
-  const updateVotes = (value) => {
+  const handleVote = (value) => {
     setUserVotes((currentVotes) => {
       return currentVotes + value;
     });
+
+    updateArticleVotes(article_id, value);
   };
 
   return (
@@ -16,7 +19,7 @@ function Vote({ votes }) {
         disabled={userVotes === 1}
         aria-label="Upvote"
         onClick={() => {
-          updateVotes(1);
+          handleVote(1);
         }}
       >
         +
@@ -25,7 +28,7 @@ function Vote({ votes }) {
         disabled={userVotes === -1}
         aria-label="dislike"
         onClick={() => {
-          updateVotes(-1);
+          handleVote(-1);
         }}
       >
         -
