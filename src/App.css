@@ -125,3 +125,11 @@ ul {
 .topic {
   margin-bottom: 20px;
 }
+
+.article-card {
+  margin-bottom: 60px;
+}
+
+.article-list {
+  text-align: center;
+}

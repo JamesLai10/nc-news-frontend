@@ -30,7 +30,7 @@ function ArticleList() {
   }
 
   return (
-    <div className="ArticleList">
+    <div className="article-list">
       <h1>News Articles</h1>
       <ul>
         {articles.map((article) => (
@@ -41,9 +41,12 @@ function ArticleList() {
                   {article.title}
                 </Link>
               </h2>
-              <p id="article-info">Author: {article.author}</p>
-              <p id="article-info">
-                Date of Post: {article.created_at.slice(0, 10)}
+              <p>
+                Author: <span id="article-author">{article.author}</span>
+              </p>
+              <p>
+                Date of Post:{" "}
+                <span id="article-date">{article.created_at.slice(0, 10)}</span>
               </p>
               <p id="article-info">Topic: {article.topic}</p>
               <p id="article-info">Votes: {article.votes}</p>
