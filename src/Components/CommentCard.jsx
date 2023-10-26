@@ -1,5 +1,4 @@
 import React from "react";
-import Vote from "./Vote";
 
 function CommentCard({ comment }) {
   return (
@@ -9,9 +8,7 @@ function CommentCard({ comment }) {
         <span className="comment-date">{comment.created_at.slice(0, 10)}</span>
       </p>
       <p>{comment.body}</p>
-      <p>
-        <Vote votes={comment.votes} />
-      </p>
+      <p>Votes: {comment.votes}</p>
     </div>
   );
 }

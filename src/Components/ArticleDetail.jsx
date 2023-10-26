@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getArticleById, updateArticleVotes } from "../utils/api";
 import Vote from "./Vote";
+import CommentForm from "./CommentForm";
+
+const loggedInUsername = "jessjelly";
 
 function ArticleDetail() {
   const { article_id } = useParams();
@@ -67,6 +70,10 @@ function ArticleDetail() {
       />
 
       <br></br>
+      <CommentForm
+        article_id={article_id}
+        loggedInUsername={loggedInUsername}
+      />
       <Link to={`/articles/${article_id}/comments`}>View Comments!</Link>
     </div>
   );

@@ -20,4 +20,8 @@ export const updateArticleVotes = (article_id, inc_votes) => {
   return api.patch(`/articles/${article_id}`, { inc_votes });
 };
 
+export const postComment = (article_id, username, body) => {
+  return api.post(`/articles/${article_id}/comments`, { username, body });
+};
+
 export default api;
