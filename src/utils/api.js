@@ -24,4 +24,12 @@ export const postComment = (article_id, username, body) => {
   return api.post(`/articles/${article_id}/comments`, { username, body });
 };
 
+export const getTopics = () => {
+  return api.get("/topics");
+};
+
+export const getArticlesByTopic = (topic) => {
+  return api.get(`/articles?topic=${topic}`);
+};
+
 export default api;

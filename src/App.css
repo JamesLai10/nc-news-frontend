@@ -116,3 +116,12 @@ ul {
   max-width: 400px;
   min-width: 200px;
 }
+
+.topic-list {
+  list-style: none;
+  padding: 2;
+}
+
+.topic {
+  margin-bottom: 20px;
+}
