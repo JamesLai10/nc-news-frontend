@@ -1,6 +1,10 @@
 import React from "react";
 
-function CommentCard({ comment }) {
+function CommentCard({ comment, onDelete }) {
+  const handleDelete = () => {
+    onDelete(comment.comment_id);
+  };
+
   return (
     <div className="comment-card">
       <p>
@@ -9,6 +13,7 @@ function CommentCard({ comment }) {
       </p>
       <p>{comment.body}</p>
       <p>Votes: {comment.votes}</p>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }

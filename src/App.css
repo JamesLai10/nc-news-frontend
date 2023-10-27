@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;900&display=swap");
+
 #root {
   max-width: 1280px;
+  font-family: "Onest";
   margin: 0 auto;
   padding: 2rem;
-  /* text-align: center; */
 }
 
 .navbar {

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { getCommentsByArticleId } from "../utils/api";
+import React, { useState, useEffect } from "react";
+import { getCommentsByArticleId, deleteComment } from "../utils/api";
 import { useParams, Link } from "react-router-dom";
 import CommentCard from "./CommentCard";
 
@@ -24,6 +24,24 @@ function CommentList() {
       });
   }, [article_id]);
 
+  const handleDeleteComment = (comment_id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to remove this comment?"
+    );
+
+    if (confirmDelete) {
+      deleteComment(comment_id)
+        .then(() => {
+          setComments(
+            comments.filter((comment) => comment.comment_id !== comment_id)
+          );
+        })
+        .catch((error) => {
+          console.error("Error deleting comment: ", error);
+        });
+    }
+  };
+
   if (loading) {
     return <p className="loading">Loading comments...</p>;
   }
@@ -40,7 +58,11 @@ function CommentList() {
       <h2 className="comment-header">Comments</h2>
       <ul>
         {comments.map((comment) => (
-          <CommentCard key={comment.comment_id} comment={comment} />
+          <CommentCard
+            key={comment.comment_id}
+            comment={comment}
+            onDelete={handleDeleteComment}
+          />
         ))}
       </ul>
     </div>

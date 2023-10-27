@@ -6,6 +6,8 @@ import ArticleDetail from "./Components/ArticleDetail";
 import CommentList from "./Components/CommentList";
 import Topics from "./Components/Topics";
 import ArticlesByTopic from "./Components/ArticleByTopics";
+import LatestArticle from "./Components/LatestArticle";
+import AboutUs from "./Components/AboutUs";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -19,6 +21,8 @@ function App() {
           <NavBar />
         </nav>
         <Routes>
+          <Route path="/" element={<LatestArticle />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<ArticleDetail />} />
           <Route

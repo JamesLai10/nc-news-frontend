@@ -32,4 +32,12 @@ export const getArticlesByTopic = (topic) => {
   return api.get(`/articles?topic=${topic}`);
 };
 
+export const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`);
+};
+
+export const getLatestArticle = () => {
+  return api.get("/articles?sort_by=created_at&order=desc&limit=1");
+};
+
 export default api;
